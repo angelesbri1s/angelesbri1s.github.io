@@ -6,10 +6,10 @@ body {
 
   h1 {
     color: blue;
-    text-align: center;
+    text-align: left;
   }
 
   p {
-    font-family: verdana;
-    font-size: 20px;
+    font-family: "Roboto";
+    font-size: 40px;
   }
