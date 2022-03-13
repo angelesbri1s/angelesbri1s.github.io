@@ -1,6 +1,6 @@
 html,
 body {
-    font-family: "Roboto", sans-serif;
+    font-family: 'Playfair Display', serif;
     background-color: FloralWhite;
   }
 
@@ -10,6 +10,6 @@ body {
   }
 
   p {
-    font-family: "Roboto";
+    font-family: 'Playfair Display', serif;
     font-size: 40px;
   }
