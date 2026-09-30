@@ -1,8 +1,8 @@
 :root {
-  --text: #ffffff;
-  --link: #5100ff;
-  --link-hover: #e18db8;
-  
+  --text: rgb(0, 0, 0);
+  --link: rgb(0, 0, 0);
+  --link-hover: rgb(0, 0, 255);
+
 }
 
 body {
@@ -10,20 +10,21 @@ body {
   min-height: 100vh;
   font-family: 'Geist', system-ui, sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
-  font-size: 1.125rem;      /* body text size (18px) */
-  line-height: 1.7;
+  font-weight: 300;
+  font-size: 1.5rem;      /* body text size (18px) */
+  line-height: 1.6;
   color: var(--text);
+  background: #cacbd0;
 
   /* moving gradient */
-  background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #23a6d5);
+  /* background: linear-gradient(-45deg, #cacbd0, #668b74, #e1e8cc, #23a6d5);
   background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
+  animation: gradientShift 15s ease infinite;*/
 }
 
 /* keeps text in a readable column */
 body > * {
-  max-width: 700px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
   padding: 0 1.5rem;
@@ -31,20 +32,20 @@ body > * {
 
 h1 {
   font-family: 'Geist', system-ui, sans-serif;
-  font-size: clamp(2rem, 5vw, 3.2rem);   /* scales with screen size */
-  font-weight: 700;
+  font-size: clamp(1.5rem, 3vw, 1.75rem);   /* scales with screen size */
+  font-weight: 200;
   letter-spacing: -0.02em;
   line-height: 1.15;
   margin-top: 4rem;
   margin-bottom: 0.5rem;
 }
 
-/* the "Ph.D in Design" line */
+/* the "Ph.D in Design" line 
 h1 + p {
   font-size: 1.25rem;
   font-weight: 300;
   opacity: 0.85;
-}
+}*/
 
 p { margin-bottom: 1.4rem; }
 
@@ -52,9 +53,9 @@ p { margin-bottom: 1.4rem; }
 a {
   color: var(--link);
   font-weight: 500;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
+  text-decoration: none;
+  text-underline-offset: 0px;
+  text-decoration-thickness: 0px;
   transition: color 0.25s ease;
 }
 a:hover,
