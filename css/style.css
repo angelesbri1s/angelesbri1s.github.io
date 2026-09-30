@@ -1,15 +1,67 @@
-html,
+/* 1. Load fonts (put this line in your <head>, not in the CSS file) */
+/* 
+Geist: CSS class for a variable style
+
+.geist-<uniquifier> {
+  font-family: "Geist", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+} */
+
+:root {
+  --text: #ffffff;
+  --link: #5100ff;
+  --link-hover: #e18db8;
+}
+
 body {
-    font-family: 'Cormorant', serif;
-    background-color: FloralWhite;
-  }
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Geist', sans-serif;
+  font-size: 1.125rem;      /* body text size (18px) */
+  line-height: 1.7;
+  color: var(--text);
 
-  h1 {
-    color: blue;
-    text-align: left;
-  }
+  /* moving gradient */
+  background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #23a6d5);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
 
-  p {
-    font-family: 'Cormorant', serif;
-    font-size: 40px;
-  }
+/* keeps text in a readable column */
+body > * { max-width: 700px; margin-left: auto; margin-right: auto; padding: 0 1.5rem; }
+
+h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);   /* scales with screen size */
+  font-weight: 700;
+  line-height: 1.15;
+  margin-top: 4rem;
+  margin-bottom: 0.5rem;
+}
+
+/* the "Ph.D in Design" line, if it's the first paragraph */
+h1 + p {
+  font-size: 1.25rem;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+p { margin-bottom: 1.4rem; }
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color 0.2s;
+}
+a:hover { color: var(--link-hover); }
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@media (prefers-reduced-motion: reduce) { body { animation: none; } }
