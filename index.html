@@ -47,7 +47,7 @@
   </script>
 
   <!-- Favicon (fallback; the script at the bottom animates it) -->
-  <link rel="icon" id="favicon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23764ba2'/></svg>" />
+<link rel="icon" id="favicon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><polygon points='32,4 60,60 4,60' fill='%23caff38'/></svg>" />
 
   <!-- Geist font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -68,31 +68,34 @@
 
   <!-- Animated favicon: a square that slowly shifts through the page's gradient colors -->
   <script>
-    (function () {
-      var link = document.getElementById('favicon');
-      var canvas = document.createElement('canvas');
-      canvas.width = canvas.height = 32;
-      var ctx = canvas.getContext('2d');
-      var colors = ['#667eea', '#764ba2', '#f093fb', '#23a6d5'];
-      var t = 0;
+  (function () {
+    var link = document.getElementById('favicon');
+    var canvas = document.createElement('canvas');
+    canvas.width = canvas.height = 64;
+    var ctx = canvas.getContext('2d');
 
-      function draw() {
-        var i = Math.floor(t) % colors.length;
-        var next = (i + 1) % colors.length;
-        var g = ctx.createLinearGradient(0, 0, 32, 32);
-        g.addColorStop(0, colors[i]);
-        g.addColorStop(1, colors[next]);
-        ctx.fillStyle = g;
-        ctx.fillRect(0, 0, 32, 32);
-        link.href = canvas.toDataURL('image/png');
-        t += 0.03;
-      }
+    var colors = ['#caff38', '#0000ff', '#e95b64', '#A6AC82', '#B27029', '#AC67D7', '#FB2E68'];
+    var interval = 2000;   // milliseconds between color changes (1000 = 1 second)
+    var i = 0;
 
-      draw();
-      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        setInterval(draw, 100);
-      }
-    })();
-  </script>
+    function draw() {
+      ctx.clearRect(0, 0, 64, 64);
+      ctx.fillStyle = colors[i];
+      ctx.beginPath();
+      ctx.moveTo(32, 4);    // top point
+      ctx.lineTo(60, 60);   // bottom right
+      ctx.lineTo(4, 60);    // bottom left
+      ctx.closePath();
+      ctx.fill();
+      link.href = canvas.toDataURL('image/png');
+      i = (i + 1) % colors.length;
+    }
+
+    draw();
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setInterval(draw, interval);
+    }
+  })();
+</script>
 </body>
 </html>
